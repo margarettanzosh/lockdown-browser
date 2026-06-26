@@ -9,7 +9,7 @@ echo "Downloading Lockdown Browser..."
 curl -L "$DMG_URL" -o "$DMG_PATH"
 
 echo "Installing..."
-MOUNT_POINT=$(hdiutil attach "$DMG_PATH" -nobrowse -quiet | awk 'END {print $NF}')
+MOUNT_POINT=$(hdiutil attach "$DMG_PATH" -nobrowse -quiet | tail -1 | cut -f3-)
 cp -R "$MOUNT_POINT/Lockdown Browser.app" "/Users/Shared/"
 xattr -cr "$INSTALL_PATH"
 hdiutil detach "$MOUNT_POINT" -quiet
