@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-DMG_URL="https://github.com/margarettanzosh/lockdown-browser/releases/download/v1.0.0/Lockdown%20Browser-1.0.0-arm64.dmg"
+DMG_URL="https://github.com/margarettanzosh/lockdown-browser/releases/download/v1.0.0/Lockdown.Browser-1.0.0-arm64.dmg"
 DMG_PATH="/tmp/LockdownBrowser.dmg"
 INSTALL_PATH="/Users/Shared/Lockdown Browser.app"
 
