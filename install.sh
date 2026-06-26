@@ -9,10 +9,10 @@ echo "Downloading Lockdown Browser..."
 curl -L "$DMG_URL" -o "$DMG_PATH"
 
 echo "Installing..."
-MOUNT_POINT=$(hdiutil attach "$DMG_PATH" -nobrowse -quiet | tail -1 | cut -f3-)
-cp -R "$MOUNT_POINT/Lockdown Browser.app" "/Users/Shared/"
+hdiutil attach "$DMG_PATH" -nobrowse -quiet -mountpoint /tmp/lbmount
+cp -R "/tmp/lbmount/Lockdown Browser.app" "/Users/Shared/"
 xattr -cr "$INSTALL_PATH"
-hdiutil detach "$MOUNT_POINT" -quiet
+hdiutil detach /tmp/lbmount -quiet
 rm "$DMG_PATH"
 
 echo "Done! Lockdown Browser is installed in /Users/Shared/"
