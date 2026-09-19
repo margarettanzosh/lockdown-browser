@@ -3,7 +3,7 @@
 # Usage:  curl -fsSL https://raw.githubusercontent.com/margarettanzosh/lockdown-browser/main/install.sh | bash
 set -e
 
-VERSION="1.2.2"
+VERSION="1.2.3"
 DMG_URL="https://github.com/margarettanzosh/lockdown-browser/releases/download/v${VERSION}/LockdownBrowser-${VERSION}-universal.dmg"
 DMG_PATH="/tmp/LockdownBrowser.dmg"
 MOUNT_POINT="/tmp/lbmount"
