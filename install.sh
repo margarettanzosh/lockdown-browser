@@ -3,11 +3,18 @@
 # Usage:  curl -fsSL https://raw.githubusercontent.com/margarettanzosh/lockdown-browser/main/install.sh | bash
 set -e
 
-VERSION="1.2.5"
+VERSION="1.2.7"
 DMG_URL="https://github.com/margarettanzosh/lockdown-browser/releases/download/v${VERSION}/LockdownBrowser-${VERSION}-universal.dmg"
 DMG_PATH="/tmp/LockdownBrowser.dmg"
 MOUNT_POINT="/tmp/lbmount"
-INSTALL_DIR="/Users/Shared"
+# Same choice the USB installer makes, so the two routes cannot leave two
+# copies in different folders on one Mac — which is exactly how the wrong
+# copy ends up handling lockdown:// links.
+if [ -w /Applications ]; then
+  INSTALL_DIR="/Applications"
+else
+  INSTALL_DIR="/Users/Shared"
+fi
 APP_PATH="${INSTALL_DIR}/Lockdown Browser.app"
 
 echo "Downloading Lockdown Browser ${VERSION}..."
